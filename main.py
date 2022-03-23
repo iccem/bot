@@ -5,10 +5,6 @@ import clear_text
 
 c = clear_text.Clear()
 
-
-
-
-    
 if __name__ == '__main__':
     question = input()
     # question = 'как дела'
