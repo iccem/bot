@@ -36,7 +36,7 @@ import sklearn
 # c = clear_text.Clear()
 
 if __name__ == '__main__':
-    # question = input()
+    question = input()
 
     def is_matching(text1, text2):
         text1 = c.normalize(text1)
@@ -54,25 +54,25 @@ if __name__ == '__main__':
             for example in data['examples']:
                 if is_matching(text, example):
                     return name
-    print(get_intent('привет'))
-    # def get_answer(intent):
-    #     responses = BOT_CONFIG['intents'][intent]['responses']
-    #     return random.choice(responses)
+    
+    def get_answer(intent):
+        responses = BOT_CONFIG['intents'][intent]['responses']
+        return random.choice(responses)
 
-    # def bot(text):
-    #     intent = get_intent(text)
+    def bot(text):
+        intent = get_intent(text)
 
-    #     if not intent:
-    #         # подключить модель машинногоо бучения
-    #         test = vectorizer.transform([text])
-    #         intent = model.predict(test)[0] # по Х предсказать у, т е классифицировать
+        if not intent:
+            # подключим модель машинногоо бучения
+            test = vectorizer.transform([text])
+            intent = model.predict(test)[0] # по Х предсказать у, т е классифицировать
 
-    #     print('Intent = ', intent)
+        print('Intent = ', intent)
 
-    #     if intent:
-    #         return get_answer(intent)
+        if intent:
+            return get_answer(intent)
 
 
-    #     failure_phrases = BOT_CONFIG('failure_phrases')
-    #     random.choice(failure_phrases)
+        failure_phrases = BOT_CONFIG('failure_phrases')
+        random.choice(failure_phrases)
     
