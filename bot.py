@@ -1,12 +1,12 @@
 import nltk
 import random
 # import sklearn
-import clear_text
-import import_json
+import text_preprocessing
+import raw_data
 
-c = clear_text.Clear()
-j = import_json.GetJSON()
-BOT_CONFIG = j.get_json()
+c = text_preprocessing.Preprocess()
+j = raw_data.Data()
+BOT_CONFIG = j.get_data()
 
 class Bot:
     def is_matching(self, text1, text2):
@@ -30,20 +30,20 @@ class Bot:
         responses = BOT_CONFIG['intents'][intent]['responses']
         return random.choice(responses)
 
-    # def bot(text):
-    #     intent = self.get_intent(text)
+    def interact(text):
+        intent = self.get_intent(text)
 
-    #     if not intent:
-    #         # подключить модель машинногоо бучения
-    #         test = vectorizer.transform([text])
-    #         intent = model.predict(test)[0] # по Х предсказать у, т е классифицировать
+        if not intent:
+            # подключить модель машинногоо бучения
+            test = vectorizer.transform([text])
+            intent = model.predict(test)[0] # по Х предсказать у, т е классифицировать
 
-    #     print('Intent = ', intent)
+        print('Intent = ', intent)
 
-    #     if intent:
-    #         return get_answer(intent)
+        if intent:
+            return get_answer(intent)
 
 
-    #     failure_phrases = BOT_CONFIG('failure_phrases')
-    #     random.choice(failure_phrases)
+        failure_phrases = BOT_CONFIG('failure_phrases')
+        random.choice(failure_phrases)
     
