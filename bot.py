@@ -3,12 +3,18 @@ import random
 # import sklearn
 import text_preprocessing
 import raw_data
+import vectorize
+import model
 
-c = text_preprocessing.Preprocess()
-j = raw_data.Data()
-BOT_CONFIG = j.get_data()
+# c = text_preprocessing.Preprocess()
+# j = raw_data.Data()
+# BOT_CONFIG = j.get_data()
+v = vectorize.Vectorizer()
 
 class Bot:
+    def start(self):
+        pass
+    
     def is_matching(self, text1, text2):
         text1 = c.normalize(text1)
         text2 = c.normalize(text2)
@@ -30,18 +36,39 @@ class Bot:
         responses = BOT_CONFIG['intents'][intent]['responses']
         return random.choice(responses)
 
-    def interact(text):
-        intent = self.get_intent(text)
+    # def interact(self, text):
+    #     intent = Bot.get_intent(self, text)
 
-        if not intent:
-            # подключить модель машинногоо бучения
-            test = vectorizer.transform([text])
-            intent = model.predict(test)[0] # по Х предсказать у, т е классифицировать
+    #     if not intent:
+    #         # подключить модель машинного бучения
+    #         test = v.vectorizer.transform([text])
+            
+    #         # по Х предсказать у, т е классифицировать
+    #         intent = model.predict(test)[0]
+
+    #     print('Intent = ', intent)
+
+    #     if intent:
+    #         result = self.get_answer(intent)
+    #         return result
+
+
+    #     failure_phrases = BOT_CONFIG('failure_phrases')
+    #     random.choice(failure_phrases)
+    
+    def interact(self, text):
+    
+        # подключить модель машинного бучения
+        test = v.vectorizer.transform([text])
+        
+        # по Х предсказать у, т е классифицировать
+        intent = model.predict(test)[0]
 
         print('Intent = ', intent)
 
         if intent:
-            return get_answer(intent)
+            result = self.get_answer(intent)
+            return result
 
 
         failure_phrases = BOT_CONFIG('failure_phrases')
