@@ -3,6 +3,10 @@ import bot
 
 def main():
     # question = input()
+    # запуск бота
+    # обучить : получить сырые данные, обучиться
+    #взаимодействовать
+    #
     this_bot = bot.Bot()
     this_bot.start()
     

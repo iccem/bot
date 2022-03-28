@@ -18,10 +18,10 @@ class Vectorizer():
     # можно указать настройки как преобразовывать
     vectorizer = CountVectorizer() 
     
-    def get_data(self):
-        return BOT_CONFIG
+    # def get_data(self):
+    #     return BOT_CONFIG
     
-    def vectorize(self):
+    def vectorize(self, BOT_CONFIG):
         BOT_CONFIG = self.get_data()
         
         for name, data in BOT_CONFIG['intents'].items():

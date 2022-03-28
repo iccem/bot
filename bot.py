@@ -1,8 +1,9 @@
 import nltk
 import random
 # import sklearn
-import text_preprocessing
-import raw_data
+# import text_preprocessing
+# import raw_data
+import preparation
 import vectorize
 import model
 
@@ -13,7 +14,8 @@ v = vectorize.Vectorizer()
 
 class Bot:
     def start(self):
-        pass
+        p = preparation.Preparation()
+        
     
     def is_matching(self, text1, text2):
         text1 = c.normalize(text1)
