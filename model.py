@@ -2,6 +2,7 @@ from sklearn.linear_model import LogisticRegression
 import vectorize
 
 class Model:
+    
     def train(self, data_model):
         v = vectorize.Vectorizer()
         
@@ -10,6 +11,8 @@ class Model:
         
         model = LogisticRegression()
         model.fit(X_vectorized, y) # модель учится по Х определять у
+
+
 
         test = v.vectorizer.transform(['как настроение у тебя сегодня'])
         model.predict(test) # по Х предсказать у, т е классифицировать

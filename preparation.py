@@ -21,16 +21,21 @@ class Preparation():
     
     def _prepare_data__vectorize(self):
         v = vectorize.Vectorizer()
-        self.data_model = v.vectorize(self.BOT_CONFIG)
+        
+        # X_vectorized, y
+        # self.data_model = v.vectorize(self.BOT_CONFIG)
+        return v.vectorize(self.BOT_CONFIG)
     
-    def _train_model(self):
-        m = model.Model()
-        m.train(self.data_model)
-        # return trained model
-        # data_model = self.prepare_data__vectorize()
-        # X_vectorized = data_model[0]
-        # y = data_model[1]
-        pass
+    # def _train_model(self):
+    #     m = model.Model()
+    #     m.train(self.data_model)
+    #     # return trained model
+    #     # data_model = self.prepare_data__vectorize()
+    #     # X_vectorized = data_model[0]
+    #     # y = data_model[1]
+    #     pass
     
     def prepare_bot(self):
-        pass
+        self._load_raw_data()
+        self.data_model = self._prepare_data__vectorize()
+        return self.data_model
