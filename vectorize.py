@@ -22,7 +22,7 @@ class Vectorizer():
     #     return BOT_CONFIG
     
     def vectorize(self, BOT_CONFIG):
-        BOT_CONFIG = self.get_data()
+        # BOT_CONFIG = self.get_data()
         
         for name, data in BOT_CONFIG['intents'].items():
             for example in data['examples']:
@@ -30,11 +30,13 @@ class Vectorizer():
                 y.append(name)
                 
             
-            # передать набор текстов, чтобы векторайзер их проанализировал
+            # передать набор текстов, 
+            # чтобы векторайзер их проанализировал
             self.vectorizer.fit(X) 
             # CountVectorizer()
 
 
-        # трансформирует тексты в наборы чисел - в вектора
+        # трансформирует тексты в наборы чисел - 
+        # в вектора
         X_vectorized = self.vectorizer.transform(X) 
         return X_vectorized, y

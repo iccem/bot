@@ -1,3 +1,4 @@
+from multiprocessing.spawn import prepare
 import nltk
 import random
 # import sklearn
@@ -10,11 +11,13 @@ import model
 # c = text_preprocessing.Preprocess()
 # j = raw_data.Data()
 # BOT_CONFIG = j.get_data()
-v = vectorize.Vectorizer()
+# v = vectorize.Vectorizer()
+prepared_data = []
 
 class Bot:
     def start(self):
         p = preparation.Preparation()
+        prepared_data = p.prepare_bot()
         
     
     def is_matching(self, text1, text2):
