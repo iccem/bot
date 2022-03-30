@@ -1,12 +1,13 @@
-from multiprocessing.spawn import prepare
+# from multiprocessing.spawn import prepare
 import nltk
 import random
 # import sklearn
 # import text_preprocessing
 # import raw_data
 import preparation
-import vectorize
-import model
+# import vectorize
+# import model
+import logistic_regression
 
 # c = text_preprocessing.Preprocess()
 # j = raw_data.Data()
@@ -18,6 +19,11 @@ class Bot:
     def start(self):
         p = preparation.Preparation()
         prepared_data = p.prepare_bot()
+        logistic_regression_model = logistic_regression.LogisticRegressionModel()
+        #
+        prepare_bot = logistic_regression_model.train_model(prepared_data)
+        print(prepare_bot)
+        # intent = logistic_regression_model.test_model(prepared_data, user_text)
         
     
     def is_matching(self, text1, text2):
@@ -64,18 +70,18 @@ class Bot:
     def interact(self, text):
     
         # подключить модель машинного бучения
-        test = v.vectorizer.transform([text])
+        # test = v.vectorizer.transform([text])
         
         # по Х предсказать у, т е классифицировать
-        intent = model.predict(test)[0]
+        # intent = model.predict(test)[0]
 
-        print('Intent = ', intent)
+        # print('Intent = ', intent)
 
-        if intent:
-            result = self.get_answer(intent)
-            return result
+        # if intent:
+        #     result = self.get_answer(intent)
+        #     return result
 
 
-        failure_phrases = BOT_CONFIG('failure_phrases')
-        random.choice(failure_phrases)
-    
+        # failure_phrases = BOT_CONFIG('failure_phrases')
+        # random.choice(failure_phrases)
+        pass
