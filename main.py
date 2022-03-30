@@ -11,7 +11,7 @@ def main():
     this_bot.start()
     
     question = "какого черта?"
-    this_bot.interact(question)
+    # this_bot.interact(question)
 
 
 if __name__ == '__main__':
