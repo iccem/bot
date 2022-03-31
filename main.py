@@ -7,10 +7,12 @@ def main():
     # обучить : получить сырые данные, обучиться
     #взаимодействовать
     #
-    this_bot = bot.Bot()
-    this_bot.start()
     
-    question = "какого черта?"
+    this_bot = bot.Bot()
+    question = "как настроение?"
+    this_bot.start(question)
+    # this_bot.test_bot(question)
+    
     # this_bot.interact(question)
 
 
