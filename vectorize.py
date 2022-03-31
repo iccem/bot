@@ -16,7 +16,7 @@ class Vectorizer():
 
     # тексты векторизовать - преобразовать в числа
     # можно указать настройки как преобразовывать
-    vectorizer = CountVectorizer() 
+    vectorizer = CountVectorizer()
     
     # def get_data(self):
     #     return BOT_CONFIG
