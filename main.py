@@ -9,7 +9,8 @@ def main():
     #
     
     this_bot = bot.Bot()
-    question = "как настроение?"
+    question = "как прошел твой день?"
+    print(question)
     this_bot.start(question)
     # this_bot.test_bot(question)
     
