@@ -24,6 +24,7 @@ class Bot:
                 
         X_vectorized = vectorizer.transform(X) # трансформирует тексты в наборы чисел - в вектора
 
+        # TweedieRegressor
         model = LogisticRegression(
             penalty='l2', tol=0.0005, class_weight='balanced', solver='newton-cg', max_iter=50,
             multi_class='ovr'
